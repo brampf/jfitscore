@@ -2,8 +2,6 @@ package de.brampf;
 
 import java.util.Arrays;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class HeaderBlock {
     
     public HeaderBlock(byte[] bytes){
@@ -44,7 +42,7 @@ public class HeaderBlock {
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-        sb.append(StringUtils.rightPad(keyword, 8, " "));
+        sb.append(String.format("%-"+8+"s", keyword));
         
         if (value != null) {
             sb.append("= ");

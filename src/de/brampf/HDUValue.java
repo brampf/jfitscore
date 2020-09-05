@@ -1,7 +1,5 @@
 package de.brampf;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class HDUValue<Value> {
     
     public final Value val;
@@ -57,7 +55,7 @@ public class HDUValue<Value> {
     public String toString() {
 
         if (val instanceof String) {
-            return "'"+StringUtils.rightPad(val.toString(), 8, " ")+"'";
+            return "'"+String.format("%-"+8+"", val.toString())+"'";
         }
 
         if (val instanceof Boolean) {
