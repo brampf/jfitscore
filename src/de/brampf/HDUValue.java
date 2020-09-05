@@ -1,6 +1,6 @@
 package de.brampf;
 
-import java.text.ParseException;
+import org.apache.commons.lang3.StringUtils;
 
 public class HDUValue<Value> {
     
@@ -15,7 +15,7 @@ public class HDUValue<Value> {
 
 
         if (trimmed.startsWith("'")) {
-            return new HDUValue<String>(trimmed.substring(1,trimmed.length()-1));
+            return new HDUValue<String>(trimmed.substring(1,trimmed.length()-1).trim());
 
         } else {
 
@@ -50,14 +50,14 @@ public class HDUValue<Value> {
             // try again
         }
 
-            throw new Exception("Unable to read value");
+            throw new Exception("Unable to read value "+trimmed);
         }
     }
 
     public String toString() {
 
         if (val instanceof String) {
-            return "'"+val+"'";
+            return "'"+StringUtils.rightPad(val.toString(), 8, " ")+"'";
         }
 
         if (val instanceof Boolean) {

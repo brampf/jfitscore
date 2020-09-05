@@ -11,13 +11,14 @@ public class HeaderBlock {
         raw = new String(bytes);
 
         keyword = new String(Arrays.copyOfRange(bytes, 0, 8)).trim();
-        String rest = new String(Arrays.copyOfRange(bytes, 11, 79));
+        String rest = new String(Arrays.copyOfRange(bytes, 10, 79));
 
-        int split = rest.indexOf("/");
+        int split = rest.lastIndexOf("/");
         if (split > 0) {
             try {
             value = HDUValue.parse(rest.substring(0, split-1));
             } catch (Exception e){
+                System.out.println(e.getLocalizedMessage());
                 value = null;
             }
 
@@ -27,6 +28,7 @@ public class HeaderBlock {
             try {
                 value = HDUValue.parse(rest);
             } catch (Exception e){
+                System.out.println(e.getLocalizedMessage());
                 value = null;
             }
         }
@@ -42,7 +44,7 @@ public class HeaderBlock {
     public String toString() {
         
         StringBuilder sb = new StringBuilder();
-        sb.append(StringUtils.rightPad(keyword, 9, " "));
+        sb.append(StringUtils.rightPad(keyword, 8, " "));
         
         if (value != null) {
             sb.append("= ");

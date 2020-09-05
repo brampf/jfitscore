@@ -1,37 +1,34 @@
 package de.brampf;
 
 import java.io.FileInputStream;
+import java.util.LinkedList;
 
 public class FitsFile {
 
     static int CARD_LENGTH = 80;
 
-    public static void parse(final String stringPath) {
+    public LinkedList<HDU> hdus = new LinkedList<>(); 
+
+    public static FitsFile parse(final String stringPath) {
+
+        FitsFile file = new FitsFile();
 
         try {
             final FileInputStream input = new FileInputStream(stringPath);
 
-            final byte[] reader = new byte[CARD_LENGTH];
-            boolean end = false;
-
-            while (end == false) {
-                input.read(reader, 0, CARD_LENGTH);
-                HeaderBlock hb = new HeaderBlock(reader);
-
-                System.out.println(hb.toString());
-                System.out.println(hb.raw);
-
-                if (hb.keyword.equals("END")) {
-                    end = true;
-                } 
+            while (input.available() > 0) {
+                HDU hdu = new HDU(input);
+                file.hdus.add(hdu);
             }
 
             input.close();
 
         } catch (final Exception e) {
-        //TODO: handle exception
-        System.out.print(e.getLocalizedMessage());
-    }
+            //TODO: handle exception
+            System.out.println(e.getLocalizedMessage());
+            e.printStackTrace();
+        }
 
+        return file;
     }
 }
