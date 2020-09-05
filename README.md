@@ -1,14 +1,13 @@
-## Getting Started
+# JFitsCore
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A native Swift library to read and write FITS files
 
-## Folder Structure
+<p align="center">
+<img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
+<img src="https://img.shields.io/github/languages/top/brampf/fitscore?color=bright" alt="Language">
+</p>
 
-The workspace contains two folders by default, where:
+## License
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+MIT license; see [LICENSE](LICENSE.md).
+(c) 2020
