@@ -4,7 +4,7 @@ A native Swift library to read and write FITS files
 
 <p align="center">
 <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
-<img src="https://img.shields.io/github/languages/top/brampf/fitscore?color=bright" alt="Language">
+<img src="https://img.shields.io/github/languages/top/brampf/jfitscore?color=bright" alt="Language">
 </p>
 
 ## License
